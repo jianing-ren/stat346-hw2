@@ -1,0 +1,7 @@
+---
+title: "Stat346_HW2"
+author: "Jianing Ren"
+date: "20/09/2020"
+output: pdf_document
+---
+
