@@ -2,6 +2,45 @@
 title: "Stat346_HW2"
 author: "Jianing Ren"
 date: "20/09/2020"
-output: pdf_document
+output: html_document
 ---
 
+## 1 Equivalent Expression.
+### a Show that these are equivalent. $b_1 = \frac{\sum{(x_i-\bar{x})(y_i-\bar{y})}}{\sum{(x_i-\bar{x})^2}}$; $b_1 = \dfrac{\sum{x_iy_i}-n\bar{x}\bar{y}}{\sum{x_i^2}-n\bar{x}^2}$
+
+Expand from the first equation, we get:
+$$b_1 = \frac{\sum{(x_i-\bar{x})(y_i-\bar{y})}}{\sum{(x_i-\bar{x})^2}}=\frac{\sum{(x_iy_i-x_i\bar{y}-\bar{x}y_i+\bar{x}\bar{y})}}{\sum{(x_i^2-2x_i\bar{x}+\bar{x}^2)}}$$
+
+Breaking up the summation and factoring out the constants, we get:
+$$b_1=\frac{\sum{x_iy_i}-n\bar{y}\sum{x_i}-n\bar{x}\sum{y_i}+\sum{\bar{x}\bar{y}}}{\sum{x_i^2}-2n\bar{x}\sum{x_i}+n\bar{x}^2}$$
+
+Which, after manipulating the $\sum{x_i}$ or $\sum{y_i}$ terms by multiplying top and bottom by n, we get: 
+$$b_1=\frac{\sum{(x_iy_i)}-n\bar{y}\bar{x}-n\bar{x}\bar{y}+n\bar{x}\bar{y}}{\sum{x_i^2}-2n\bar{x}\bar{x}+n\bar{x}^2}=\dfrac{\sum{x_iy_i}-n\bar{x}\bar{y}}{\sum{x_i^2}-n\bar{x}^2}$$. 
+
+### b Show that we can also write this as $b_1 = \frac{\sum{(x_i-\bar{x})y_i}}{\sum{(x_i-\bar{x})^2}} = \sum{k_i y_i}$
+
+We can first transform the numerator, $\sum{(x_i-\bar{x})(y_i-\bar{y})}$, into:
+$$\sum{(x_i-\bar{x})(y_i-\bar{y})} = \sum{(x_i-\bar{x})y_i}-\sum{(x_i-\bar{x})\bar{y}} = \sum{(x_i-\bar{x})y_i}-\bar{y}\sum{(x_i-\bar{x})}.$$ Note that, by definition, $\sum{(x_i-\bar{x})}=0$, therefore the numerator for $b_1$ is $\sum{(x_i-\bar{x})(y_i-\bar{y})}=\sum{(x_i-\bar{x})y_i}$. Putting the numerator back, we get $$b_1=\frac{\sum{(x_i-\bar{x})y_i}}{\sum{(x_i-\bar{x})^2}} = \sum{k_i y_i},$$ where $$k_i =  \dfrac{(x_i-\bar{x})}{S_{xx}}$$
+
+### c What does that say about which observations have the most influence in the slope estimate? In particular, what about a $y_i$ whose $x$ value is at the $x$-mean? 
+
+Since $b_1$ is a weighted average of $y_i$'s, a point with large $y_i$ and/or large $x_u$ will have heavy influence on $b_1$. #NOT QUITE SURE ON THIS. NEED REFINEMENT
+
+Additionally, for an observation whose $x_i=\bar{x}$, we know that $k_i$ must equal to zero, therefore having that observation has no contribution to the calculation of $b_i$ (basically a term of zero is added to the summation). Thus, adding a point whose $x_i=\bar{x}$ will only change the intercept if its $y_i$ doesn't equal to $\bar{y}$.
+
+## 2 **Pick a card, any card** You draw a card from a deck. If you get a red card, you win nothing. If you get a spade, you win \$5. For any club other than the ace, you win \$10. You win \$30 for the ace of clubs.
+
+### a Create a probability model for the amount you win.
+WHAT EXACTLY DOES HE WANT US TO DO
+
+### b Find the expected amount you’ll win (*i.e* the fair worth of the game)
+$$E(X)=\sum{xp(x)}$$
+$$=0*\frac{26}{52}+5*\frac{13}{52}+10*\frac{12}{52}+30*\frac{1}{52}$$
+$$=\frac{215}{52}\approx4.13$$
+
+QUESTION: is x as in P(X=x) the amount of dollar that you would win? 
+
+### c Find the standard deviation for amount you'll win.
+$$Var(X)=\sum{(x-\mu)^2P(x)}$$
+$$=(0-4.13)^2(\frac{26}{52})+(5-4.13)^2(\frac{13}{52})+(10-4.13)^2(\frac{12}{52})+(30-4.13)^2(\frac{1}{52})$$
+$$\approx29.54$$
